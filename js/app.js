@@ -1,2 +1,2 @@
 angular
-	.module('weatherYodaApp',[]);
+	.module('yodaApp',[]);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="weatherYodaApp">
+<html ng-app="yodaApp">
 <head>
 <link rel="stylesheet" type="text/css" href="css/normalize.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -13,6 +13,10 @@
 <body ng-controller="YodaController as yoda" ng-init="getJson()">
 
 {{ 2 + 2 }}
+
+<section class="targetWord"> 
+{{yoda.targetString}}
+</section>
 
 <form ng-submit="yoda.getYodaSpeak(input)">
 	<div>

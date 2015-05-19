@@ -1,24 +1,36 @@
 angular
-	.module('weatherYodaApp')
+	.module('yodaApp')
 	.controller('YodaController', YodaController);
 
 	YodaController.$inject = ['$http'];
 
 	function YodaController($http){
 		var self = this;
+		var targetString;
+		var targetUrl;
+		self.yodaSentence = yodaSentence;
 
-		var targetUrl  = 'https://yoda.p.mashape.com/yoda';
-		self.targetWord = 'The force is strong';
-		var endpoint = targetURL + self.targetWord;
-
-		var yodaSentence = function(string){
+		function yodaSentence(string){
+			var newString = [];
 			for (var i = 0; i < string.length; i++){
 				if (string[i] === " ") {
-					string[i] = "+";
+					// console.log(string[i])
+					newString.push("+");
+				}
+				else {
+					// console.log(string[i])
+					newString.push(string[i])
 				}
 			}
+			// console.log(newString);
+			newString = newString.join("");
+			return newString;
+		}
+		self.targetString = 'The force is strong with this one';
+		var endpoint = "https://yoda.p.mashape.com/yoda?sentence="+ yodaSentence(self.targetString);
 
-		};
+		console.log(yodaSentence(self.targetString))
+		console.log(endpoint)
 
 		self.getJson = $http({
 			method: 'GET',
@@ -34,6 +46,7 @@ angular
 		function renderData(jsonWeGotBack){
 			self.data = jsonWeGotBack.definitions;
 			console.log("Success!");
+			console.log(endpoint);
 		}
 
 		function errorMessage(){
@@ -41,8 +54,8 @@ angular
 		}
 
 		self.getYodaSpeak = function(value){
-			self.targetWord = value.toLowerCase();
-			endpoint = targetUrl + self.targetWord;
+			self.targetString = value;
+			endpoint = targetUrl + yodaSentence(self.targetString);
 			$http({
 				method: 'GET',
 				url: endpoint,
@@ -52,6 +65,6 @@ angular
 				}
 			})
 			.success(renderData)
-			.error(errorMessage)
+			.error(errorMessage);
 		};
 	}
