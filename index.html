@@ -1,9 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="yodaApp">
 <head>
+<link rel="stylesheet" type="text/css" href="css/normalize.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/app.js" type="text/javascript"></script>
+<script src="js/yodaController.js" type="text/javascript"></script>
+
 	<title>Weather Yoda</title>
 </head>
-<body>
+<body ng-controller="YodaController as yoda" ng-init="getJson()">
+
+{{ 2 + 2 }}
+
+<section class="targetWord"> 
+{{ yoda.targetString }}
+</section>
+
+<div>
+	{{ yoda.message }}	
+</div>
+
+<form ng-submit="yoda.getYodaSpeak(input)">
+	<div>
+		<input type="text" placeholder="Enter Phrase Here" ng-model="input" value="The Force is Strong with this one">
+		<input class="btn" type="submit" value="Get Yoda Speak">
+	</div>
+</form>
+
+<div>
+	{{ }}
+</div>
 
 </body>
 </html>
