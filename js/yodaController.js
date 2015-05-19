@@ -8,6 +8,8 @@ angular
 		var self = this;
 		var targetString;
 		var targetUrl;
+		
+		self.targetString = 'The force is strong with this one';
 		self.yodaSentence = yodaSentence;
 
 		function yodaSentence(string){
@@ -26,7 +28,7 @@ angular
 			newString = newString.join("");
 			return newString;
 		}
-		self.targetString = 'The force is strong with this one';
+
 		var endpoint = "https://yoda.p.mashape.com/yoda?sentence="+ yodaSentence(self.targetString);
 
 		console.log(yodaSentence(self.targetString))
@@ -54,8 +56,8 @@ angular
 		}
 
 		self.getYodaSpeak = function(value){
-			self.targetString = value;
-			endpoint = targetUrl + yodaSentence(self.targetString);
+			self.targetString = value.toString();
+			endpoint = "https://yoda.p.mashape.com/yoda?sentence=" + yodaSentence(self.targetString);
 			$http({
 				method: 'GET',
 				url: endpoint,

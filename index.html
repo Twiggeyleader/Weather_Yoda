@@ -15,15 +15,23 @@
 {{ 2 + 2 }}
 
 <section class="targetWord"> 
-{{yoda.targetString}}
+{{ yoda.targetString }}
 </section>
+
+<div>
+	{{ yoda.message }}	
+</div>
 
 <form ng-submit="yoda.getYodaSpeak(input)">
 	<div>
-		<input type="text" placeholder="Enter Phrase Here" ng-model="input">
+		<input type="text" placeholder="Enter Phrase Here" ng-model="input" value="The Force is Strong with this one">
 		<input class="btn" type="submit" value="Get Yoda Speak">
 	</div>
 </form>
+
+<div>
+	{{ }}
+</div>
 
 </body>
 </html>
