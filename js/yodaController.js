@@ -46,7 +46,8 @@ angular
 		.error(errorMessage);
 
 		function renderData(jsonWeGotBack){
-			self.data = jsonWeGotBack.definitions;
+			self.data = jsonWeGotBack;
+			console.log(jsonWeGotBack);
 			console.log("Success!");
 			console.log(endpoint);
 		}

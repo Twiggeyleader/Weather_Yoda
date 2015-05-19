@@ -17,10 +17,8 @@
 <section class="targetWord"> 
 {{ yoda.targetString }}
 </section>
+<hr>
 
-<div>
-	{{ yoda.message }}	
-</div>
 
 <form ng-submit="yoda.getYodaSpeak(input)">
 	<div>
@@ -28,6 +26,10 @@
 		<input class="btn" type="submit" value="Get Yoda Speak">
 	</div>
 </form>
+<hr>
+<div>
+	{{ yoda.data}}	
+</div>
 
 <div>
 	{{ }}
