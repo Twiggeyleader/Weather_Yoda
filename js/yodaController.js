@@ -28,7 +28,7 @@ angular
 			newString = newString.join("");
 			return newString;
 		}
-
+ 
 		var endpoint = "https://yoda.p.mashape.com/yoda?sentence="+ yodaSentence(self.targetString);
 
 		console.log(yodaSentence(self.targetString))
